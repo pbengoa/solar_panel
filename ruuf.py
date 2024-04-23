@@ -16,9 +16,9 @@ def get_best_fit(panel_a, panel_b, roof_x, roof_y):
       rep_x = 0
       rep_y = panel_b
     
-    if panel_b <= roof_x and panel_a <= roof_y and best_fit > roof_y % panel_b:
-      best_fit = roof_y % panel_b
-      amount = roof_y // panel_b
+    if panel_b <= roof_x and panel_a <= roof_y and best_fit > roof_x % panel_b:
+      best_fit = roof_x % panel_b
+      amount = roof_x // panel_b
       rep_x = panel_a
       rep_y = 0
     return (amount, rep_x, rep_y, best_fit)
