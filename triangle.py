@@ -38,8 +38,8 @@ def max_rectangles(panel_a, panel_b, roof_x, roof_h):
         
   return total_amount
 
-[panel_a, panel_b, roof_x, roof_y] = sys.argv[1:]
-max_rectangles_amount = max_rectangles(int(panel_a), int(panel_b), int(roof_x), int(roof_y))
+[panel_a, panel_b, roof_x, roof_h] = sys.argv[1:]
+max_rectangles_amount = max_rectangles(int(panel_a), int(panel_b), int(roof_x), int(roof_h))
 
 print(f"Max rectangles that fit in the roof: {max_rectangles_amount} rectangles.")
 
