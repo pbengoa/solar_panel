@@ -1,4 +1,7 @@
 # solar_panel
-## Para ejecutar el código:
+## Para ejecutar el ejercicio del rectángulo:
 `python ruuf.py panel_a, panel_b, roof_x, roof_y` 
-insertando los valores 
+
+## Para ejecutar el ejercicio del triángulo:
+`python ruuf.py panel_a, panel_b, roof_x, roof_h` 
+
