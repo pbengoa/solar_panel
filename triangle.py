@@ -6,41 +6,35 @@ import math
 
 def get_amount(bigger_side, smaller_side, roof_x, roof_h, angle_sides):
   excess_x = smaller_side / math.tan(angle_sides) * 2
-  
   amount = 0
   rest_space_x = roof_x - excess_x
   rest_space_h = roof_h
   
   if rest_space_x <= 0:
-    return 0
+    return 0, rest_space_x
 
   if smaller_side <= rest_space_h:
     amount = rest_space_x // bigger_side
   
-  return (amount, rest_space_x)
-  
+  return amount, excess_x
 
 def max_rectangles(panel_a, panel_b, roof_x, roof_h):
   total_amount = 0
   rest_space_x = roof_x
   rest_space_h = roof_h
-  angle_sides = math.atan(roof_h / (roof_x/2))
+  angle_sides = math.atan(roof_h / (roof_x / 2))
   
-  check_horizontal = False
-  check_vertical = False
-  
-  while not check_horizontal or not check_vertical:
-    if not check_horizontal:
-      amount_horizontal, excess = get_amount(panel_a, panel_b, rest_space_x, rest_space_h, angle_sides)
-      if check_horizontal:
-        break
-      if amount_horizontal == 0:
-        check_horizontal = True
-        panel_a, panel_b = panel_b, panel_a
-      else:
-        total_amount += amount_horizontal
-        rest_space_x -= excess
-        rest_space_h -= panel_b
+  while True:
+    amount_horizontal, excess = get_amount(panel_a, panel_b, rest_space_x, rest_space_h, angle_sides)
+    
+    if amount_horizontal == 0:
+      break
+    
+    total_amount += amount_horizontal
+    rest_space_x -= excess
+    rest_space_h -= panel_b
+    print(f"Amount: {amount_horizontal}, rep_x: {rest_space_x}, rep_y: {rest_space_h}, excess: {excess}")
+
         
   return total_amount
 
